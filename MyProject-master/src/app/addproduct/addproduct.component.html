@@ -1,0 +1,121 @@
+<div class="container" >
+  <div class="row">
+    <app-centralize-header></app-centralize-header>
+    <hr>
+    <div class="col-xs-12">
+    <!--<div class="col-xs-12 col-sm-10 cols-md-8 cols-sm-offset-1 cols-md-offset-2">-->
+
+      <form  (ngSubmit)="getDetails()" #f="ngForm">
+        <!--<h3 class="ui header" class="text-center">Login</h3>-->
+
+        <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+          <!--&lt;!&ndash;ngModelGroup="userData"&ndash;&gt;-->
+          <!--#userData="ngModelGroup">-->
+          <div class="row">
+            <div class="col-sm-5 form-group">
+          <!--<div class="form-group">-->
+            <label for="productId" >ProductId</label>
+            <input type="number"
+                   id="productId"
+                   class="form-control"
+                   ngModel
+                   name="productId"
+                   required
+                   #productId="ngModel">
+            <span class="help-block" *ngIf="productId.touched">The Field can't be left empty</span>
+          </div>
+
+
+
+          <div class="col-sm-5 form-group">
+          <!--<div class="form-group">-->
+            <label for="productName">Product Name</label>
+            <input type="text"
+                   id="productName"
+                   class="form-control"
+                   ngModel
+                   name="productName"
+                   required
+                   #productName="ngModel">
+            <span class="help-block" *ngIf="productName.touched">You can't leave password field empty</span>
+          </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-sm-5 form-group">
+            <label for="productPrice">Product Price</label>
+            <input type="number"
+                   id="productPrice"
+                   class="form-control"
+                   ngModel
+                   name="productPrice"
+                   required
+                   #productPrice="ngModel">
+              <span class="help-block" *ngIf="productPrice.touched">The field is required</span>
+
+            </div>
+            <div class="col-sm-5 form-group">
+              <label for="productQuantity">Product Quantity</label>
+              <input type="number"
+                     id="productQuantity"
+                     class="form-control"
+                     ngModel
+                     name="productQuantity"
+                     required
+                     #productQuantity="ngModel">
+              <span class="help-block" *ngIf="productQuantity.touched"> The field is required</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-5 form-group">
+              <label for="productSize">Product Size</label>
+              <input type="text"
+                     id="productSize"
+                     class="form-control"
+                     ngModel
+                     name="productSize"
+                     required
+                     #productSize="ngModel">
+              <span class="help-block" *ngIf="productSize.touched"> The field is required</span>
+            </div>
+            <div class="row">
+              <div class="col-sm-5 form-group">
+                <label for="productCategory">Product Category</label>
+                <input type="text"
+                       id="productCategory"
+                       class="form-control"
+                       ngModel
+                       name="productCategory"
+                       required
+                       #productCategory="ngModel">
+                <span class="help-block" *ngIf="productCategory.touched"> The field is required</span>
+              </div>
+            </div>
+
+
+          </div>
+          <hr>
+        <div class="row">
+          <div class="col-sm-6">
+            <label class="btn btn-default">
+              <input type="file" (change)="selectedFile($event)" accept=".png, .jpg, .jpeg">
+            </label>
+            <hr>
+            <hr>
+        <button type="submit"
+                class="btn btn-primary"
+                [disabled]="!f.valid" >Add Product</button>
+          </div>
+          <!--<div class="col-sm-2">-->
+            <!--<input type="file" name="photo" ng2FileSelect  />-->
+            <!--&lt;!&ndash;[uploader]="uploader"&ndash;&gt;-->
+          <!--</div>-->
+        </div>
+
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

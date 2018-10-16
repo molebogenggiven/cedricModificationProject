@@ -1,0 +1,154 @@
+<div class="container">
+
+  <div class="header">
+    <h1>Items in a Cart</h1>
+  </div>
+  <h2>1 item in a cart</h2>
+  <div class="row" >
+    <div class="col-sm-2" >
+      <!--<img src="http://www.chirundu.com/wp-content/uploads/2009/08/Chakalaka-Recipe.jpg">-->
+      <img src="{{jsonMessage.pictureData}}">
+    </div>
+    <div class="col-sm-4" >
+      <label>Men's hoddy Long Sleeve</label>
+      <br>
+      <label>Size: {{jsonMessage.productSize}}</label>
+      <br>
+      <label>Quantity: {{jsonMessage.productQuantity}}</label>
+    </div>
+    <!--<div class="col-sm-2 " >-->
+      <!--<label>Remove</label>-->
+      <!--<br>-->
+      <!--<label>Move to wish list</label>-->
+    <!--</div>-->
+
+    <div class="col-sm-6 " >
+      <label>Total: R{{jsonMessage.productPrice}}</label>
+      <br>
+      <form  (ngSubmit)="submitPaymentDetails()" #f="ngForm" >
+        <!--<h3 class="ui header" class="text-center">Login</h3>-->
+
+        <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+          <!--ngModelGroup="userData"-->
+          <!--#userData="ngModelGroup">-->
+            <div class="form-group">
+              <label for="email" >Card Number</label>
+              <input type="email"
+                     id="email"
+                     class="form-control"
+                     ngModel
+                     name="email"
+                     required
+                     #email="ngModel">
+              <span class="help-block" *ngIf="!email.valid && email.touched">Please enter valid email</span>
+            </div>
+
+
+            <div class="row">
+              <div class="col-sm-3">
+                <label>Month</label>
+                  <select style="padding: 6%">
+                    <option *ngFor="let month of monthNames" [value]="month.monthId">{{month.monthName}}</option>
+                  </select>
+              </div>
+
+                <div class="col-sm-3">
+                  <label>Years</label>
+                  <br>
+                  <select style="padding: 6%">
+                    <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                  </select>
+                </div>
+
+             <!--/ <div class="col-sm-3">-->
+                <!--<mat-form-field>-->
+                  <!--<input matInput [matDatepicker]="dp" placeholder="Month and Year" [formControl]="date">-->
+                  <!--<mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>-->
+                  <!--<mat-datepicker #dp-->
+                                  <!--startView="multi-year"-->
+                                  <!--(yearSelected)="chosenYearHandler($event)"-->
+                                  <!--(monthSelected)="chosenMonthHandler($event, dp)"-->
+                                  <!--panelClass="example-month-picker">-->
+                  <!--</mat-datepicker>-->
+                <!--</mat-form-field>-->
+              <!--</div>-->
+
+              <div class="col-sm-3">
+              <label for="securityCode" >Security Code</label>
+              <input type="number"
+                     id="securityCode"
+                     class="form-control"
+                     ngModel
+                     name="securityCode"
+                     required
+                     #securityCode="ngModel">
+              <span class="help-block" *ngIf="!securityCode.valid && securityCode.touched">Please enter the security code</span>
+            </div>
+
+
+
+          <!--<div class="row">-->
+          <!--<div class="col-xs-12">-->
+          <!--<button type="button" class="btn btn-primary dropdown-toggle">-->
+          <!--Manage Recipe <span class="caret"></span>-->
+          <!--</button>-->
+          <!--<ul class="dropdown-menu">-->
+          <!--<li><a href="#">Add Recipe to Shopping</a></li>-->
+          <!--<li><a href="#">Edit Recipe to Shopping</a></li>-->
+          <!--<li><a href="#">Delete Recipe to Shopping</a></li>-->
+          <!--</ul>-->
+          <!--</div>-->
+          <!--</div>-->
+        </div>
+          <div class="row" style="margin-top: -8%">
+            <div class="col-sm-12">
+              <label for="cardName" >Card Name</label>
+              <input type="text"
+                     id="cardName"
+                     class="form-control"
+                     ngModel
+                     name="cardName"
+                     required
+                     #cardName="ngModel">
+              <span class="help-block" *ngIf="!cardName.valid && cardName.touched">Please enter a card name</span>
+
+            </div>
+
+
+            <div class="col-sm-6" style="margin-top: 2%">
+              <label for="zipCode" >Zip Code</label>
+              <input type="number"
+                     id="zipCode"
+                     class="form-control"
+                     ngModel
+                     name="zipCode"
+                     required
+                     #zipCode="ngModel">
+              <span class="help-block" *ngIf="!zipCode.valid && zipCode.touched">Please enter a zip code</span>
+
+            </div>
+
+            <div class="col-sm-3" style="margin-top: 2%">
+              <label>Country</label>
+              <select style="padding: 6%">
+                <option *ngFor="let country of countries" [value]="country" >{{country}}</option>
+              </select>
+            </div>
+          </div>
+
+
+            <div class="row" style="margin-top: 4%">
+              <div class="col-sm-12">
+            <button type="submit"
+                    class="btn btn-danger"
+                    [disabled]="!f.valid" >Complete Payment</button>
+            </div>
+            </div>
+        </div>
+
+
+      </form>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<!--<div class="container" >-->
+<!--&lt;!&ndash;<div class="col-md-6">&ndash;&gt;-->
+<!--<h2> User Details</h2>-->
+<!--<button class="btn btn-danger" (click)="addUser()"> Add User</button>-->
+<!--<table class="table table-striped" style="width: 100%;">-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th class="hidden">Id</th>-->
+<!--<th>ProductId</th>-->
+<!--<th>ProductName</th>-->
+<!--<th>ProductQuantity</th>-->
+<!--<th>ProductSize</th>-->
+<!--<th>Action</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody>-->
+<!--<tr *ngFor="let user of products">-->
+<!--<td class="hidden"></td>-->
+<!--<td>{{user.productId}}</td>-->
+<!--<td>{{user.productName}}</td>-->
+<!--<td>{{user.productQuantity}}</td>-->
+<!--<td>{{user.productSize}}</td>-->
+<!--<td>-->
+<!--<button class="btn btn-success" (click)="deleteUser(user)"> View</button>-->
+<!--<button class="btn btn-success" (click)="editUser(user)" style="margin-left: 20px;"> Edit</button>-->
+<!--&nbsp;&nbsp;-->
+<!--<button class="btn btn-danger" (click)="deleteUser(user)"> Delete</button></td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+
+
+
+<!--Smart Table-->
+
+<!-- <ng2-smart-table class='form-control' (deleteConfirm)="onDeleteConfirm($event)"
+                 (editConfirm)="onSaveConfirm($event)" (createConfirm)="onCreateConfirm($event)"
+                 [settings]="settings"
+  [source]="products">
+</ng2-smart-table> -->
+<form [formGroup]="setupForm">
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <td>Actions</td>
+          <td>Id</td>
+          <td>Price</td>
+          <td>name</td>
+          <td>Quantity</td>
+          <td>Quantity</td>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let data of productsw;let i=index">
+          <td class="actions">
+            <a style="padding:10px;"><i (click)="delete(data,i)">delete</i></a>
+            
+            <a style="padding:10px;"><i (click)="update(data,i)">Edit</i></a>
+          </td>
+         
+          <td>{{data.name}}</td>
+          <td>{{data.surname}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.surname}}</td>
+          <td>{{data.email}}</td>
+
+
+        </tr>
+        <tr [hidden]="iamhidden">
+          <td></td>
+          <td></td>
+          <td><input type="text" formControlName="name" /></td>
+          <td><input type="text" formControlName="surname" /></td>
+          <td><input type="text" formControlName="email" /></td>
+          <td flaxyLayout="colomn">
+            <input type="text"  formControlName="surname" />
+            <input type="submit" value="{{bname}}" [disabled]="!setupForm.valid" (click)="add(setupForm.value)" />
+          </td>
+          
+
+        </tr>
+      </tbody>
+      <button *ngIf="iamhidden"class="actions" (click)="addRow()">add row</button>
+    </table>
+
+  </div>
+</form>

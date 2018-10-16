@@ -1,0 +1,57 @@
+<!--<div class="container">-->
+
+    <!--&lt;!&ndash;<div class="header">&ndash;&gt;-->
+        <!--&lt;!&ndash;<h1>Items in a Cart</h1>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+    <!--<div class="row" >-->
+       <!--<div class="col-sm-8" style="background-color: chartreuse;">-->
+          <!--<h2>column one</h2>-->
+       <!--</div>-->
+       <!--<div class="col-sm-4" style="background-color: yellow">-->
+          <!--<h2>column two</h2>-->
+       <!--</div>-->
+    <!--</div>-->
+
+
+
+<!--</div>-->
+
+
+<div class="container">
+
+  <div class="header">
+  <h1>Items in a Cart</h1>
+  </div>
+  <h2>1 item in a cart</h2>
+    <div class="row" >
+      <div class="col-sm-2" >
+        <!--<img src="http://www.chirundu.com/wp-content/uploads/2009/08/Chakalaka-Recipe.jpg">-->
+        <img src="{{jsonMessage.pictureData}}">
+      </div>
+      <div class="col-sm-4" >
+        <label>Men's hoddy Long Sleeve</label>
+        <br>
+        <label>Size: {{jsonMessage.productSize}}</label>
+        <br>
+        <label>Quantity: {{jsonMessage.productPrice}}</label>
+      </div>
+      <div class="col-sm-2 " >
+        <label>Remove</label>
+      <br>
+        <label>Move to wish list</label>
+      </div>
+
+      <div class="col-sm-4 " >
+        <label>Total:</label>
+        <br>
+        <label>R {{jsonMessage.productPrice}}</label>
+        <br>
+        <span>
+          <button type="submit" class="btn-danger" (click)="navigateToCheckOut()" style="height: 30px; width: 150px;
+                  text-decoration: antiquewhite; margin-top: 10px">CheckOut</button>
+        </span>
+
+      </div>
+  </div>
+</div>

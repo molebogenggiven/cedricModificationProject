@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="women-advt">   <div class="logo-container"></div></div>
+  <div class="merchant-container">
+    <h1>Women's Botique</h1>
+    <div  *ngFor="let item of items" (click)="selectedItem(item)" class="sale">
+      <div class="note-title">
+        <h1>vintage Laure</h1>
+        <h2>R{{item.price}}</h2>
+      </div>
+    </div>
+  </div>
+</div>

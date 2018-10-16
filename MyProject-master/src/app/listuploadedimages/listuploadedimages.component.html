@@ -1,0 +1,16 @@
+<button class="button btn-info" *ngIf="showFile"
+        (click)="showFiles(false)"> Hide Image</button>
+<button class="button btn-info" *ngIf="!showFile"
+        (click)="showFiles(true)">Show Image</button>
+
+<div [hidden]="!showFiles">
+  <div class="panel panel-primary">
+    <div class="panel-heading"> List of Images</div>
+    <div *ngFor="let file of fileUploads | async">
+      <div class="panel-body">
+        <app-details-uploaded [fileUpload]="file" ></app-details-uploaded>
+      </div>
+
+    </div>
+  </div>
+</div>

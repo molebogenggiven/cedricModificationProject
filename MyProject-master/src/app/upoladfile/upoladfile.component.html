@@ -1,0 +1,5 @@
+<form [formGroup]="formGroup" novalidate (ngSubmit)="onSubmit()">
+  <input type="file" (change)="onFileChange($event)" />
+  <hr>
+  <button type="submit">Submit</button>
+</form>

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="women-advt">   <div class="logo-container"></div></div>
+  <div class="merchant-container">
+    <h1>Men's Botique</h1>
+    <div  *ngFor="let item of jsonData" (click)="selectedItem(item)" class="sale">
+      <img src="{{item.pictureData}}">
+      <!--<div class="note-title">-->
+        <!--<h1>{{item.productName}}</h1>-->
+        <!--<h2>R{{item.productPrice}}</h2>-->
+      <!--</div>-->
+    </div>
+  </div>
+</div>

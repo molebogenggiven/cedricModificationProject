@@ -1,0 +1,182 @@
+
+<!-- header ends here -->
+<div class="header-Wrapper position-relative">
+    <div [class.Header]="!fixed" [class.Header2]="fixed">
+      <div class="container-fluid">
+        <div class="d-flex" fxLayout="row">
+  
+          <div fxLayout.xs="column" fxLayout.sm="column" fxFlex="70%" fxLayoutGap.xs="1">
+            <div class="px-3" fxLayout.xs="column">
+              <h2>Logo</h2>
+            </div>
+  
+            <div class="px-3 d-flex" fxFlex="40%" fxFlex.xs="100%" fxLayoutAlign="end" fxLayoutAlign.sm="start streach" fxLayoutAlign.xs="start streach">
+              <div class="search">
+                <form [formGroup]="searchForm">
+                  <input (keydown)="search($event)" type=text placeholder="search..." formControlName="search">
+                  <i *ngIf="!searchBusy" class="fa fa-search"></i>
+                  <i *ngIf="searchBusy" (click)="clearSerch()" class="fa fa fa-times"></i>
+                </form>
+              </div>
+            </div>
+            <div class="px-3 " fxFlex="50%" fxLayoutAlign="start" fxShow="true" fxHide.sm="true" fxHide.xs="true">
+              <ul class="listItem d-flex pl-2 flex-items-center text-bold list-style-none">
+                <li fxFlex="30%" *ngFor="let manu of manu" routerLink="/{{manu.routerLink}}">{{manu.value}}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="d-flex" fxLayout="row" fxLayoutAlign="end" fxLayoutAlign.sm="start" fxFlex="30%" fxLayoutGap.xs="1">
+            <div class="cart" fxLayoutAlign="start" fxShow="true" fxShow.xs="false" fxShow.sm="false">
+              <ul style="border:1px solid white; border-radius: 3px;" class=" d-flex pl-2 flex-items-center text-bold list-style-none d-right">
+                <li routerLink="app-list-all-users"><i style="font-size: 28px" class="fa fa-cart-plus"></i></li>
+                <li style="font-size: 18px;padding-top:0;padding-left:0;font-style: italic">4</li>
+              </ul>
+            </div>
+            <div fxShow="false" fxLayoutAlign="end" fxShow.xs="true" fxShow.sm="true">
+              <ul class=" d-flex pl-2  text-bold list-style-none d-right">
+                <li (click)="toggleManu()"><a class="btn btn-primary"  aria-label="Skip to main navigation">
+                    <i class="fa fa-bars" *ngIf="!manuOpen" aria-hidden="true"></i>
+                    <i class="fa fa-times" *ngIf="manuOpen" aria-hidden="true"></i>
+                  </a></li>
+              </ul>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!hideManu" flexLayout="column" class="manubar">
+      <div (click)="clicItem()" class="manu-item" *ngFor="let manu of manu;let i=index">
+        <div flexLayout="column">
+          <span style="width:50%;" *ngIf="i!==0" fxFlex="50">{{manu.value}}</span>
+          <span style="width:50%;" fxFlex="50%" *ngIf="i==0">MyCart</span>
+          <i style="font-size: 18px;" fxFlex="50%" style="margin-top:0px" fxLayoutAlign="end" *ngIf="i==0" class="fa fa-cart-plus"></i>
+        </div>
+      </div>
+    </div>
+    <div [class.header-Panel]="!fixed"fxLayout.xs="column"  fxFlex="100%"  [class.fixed]="fixed">
+      <div >
+        <h2 style="color:rgb(44, 41, 41)">Welcome back {{name}}</h2> 
+      </div>
+    
+    </div>
+  
+  </div>
+  
+  
+  <!-- header ends here -->
+
+<!--<div class="container">-->
+  <!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+      <!--<app-header></app-header>-->
+      <!--&lt;!&ndash;<app-recipes></app-recipes>&ndash;&gt;-->
+      <!--&lt;!&ndash;<app-shopping-list></app-shopping-list>&ndash;&gt;-->
+      <!--&lt;!&ndash;<br>&ndash;&gt;-->
+      <!--&lt;!&ndash;<app-login></app-login>&ndash;&gt;-->
+      <!--&lt;!&ndash;<app-register></app-register>&ndash;&gt;-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!--<div class="container">-->
+  <!--<div class="row">-->
+<!--<nav class="nav navbar-default">-->
+  <!--<div class="container-fluid">-->
+    <!--<div class="navbar-header">-->
+      <!--<a href="#" class="navbar-brand">Oliven Online Shopping</a>-->
+    <!--</div>-->
+    <!--<div class="collapse navbar-collapse">-->
+      <!--<ul class="nav navbar-nav">-->
+        <!--<li><a href="#">Home</a></li>-->
+        <!--<li><a href="#">About Us</a></li>-->
+        <!--<li><a href="/login">Login</a></li>-->
+        <!--<li><a href="/register">Sign Up</a></li>-->
+      <!--</ul>-->
+      <!--<ul class="nav navbar-nav navbar-right">-->
+        <!--<li class="dropdown">-->
+          <!--<a href="#" class="dropdown-toggle">Manage<span class="caret"></span></a>-->
+          <!--<ul class="dropdown-menu">-->
+            <!--<li><a href="#">Save Data</a></li>-->
+            <!--<li><a href="#">Fetch Data</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
+
+      <!--</ul>-->
+
+    <!--</div>-->
+  <!--</div>-->
+
+<!--</nav>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="cols-xs-12">-->
+      <!--<router-outlet></router-outlet>-->
+      <!--<app-checkout></app-checkout>-->
+      <!--<app-get-all-products></app-get-all-products>-->
+  <!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+  <!-- <div class="social-container">
+    <a href="#"><div class="social-icon-container">Hom'e</div></a>
+    <a href="#"><div class="social-icon-container">Store</div></a>
+    <a href="#"><div class="social-icon-container">D'DD</div></a>
+  </div> -->
+
+<!--The content below is only a placeholder and can be replaced.-->
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<div class="body-container">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="footer"  fxLayout="column" fxLayout.lt-md="column" >
+
+  <div class="social-container  nav" fxLayout.xs="column" fxFlex="100%" fxLayoutAlign="center start" >
+    <a  fxLayout.xs="column" routerLink="/home"><div class="social-icon-container"><span>Home</span></div></a>
+    <a  fxLayout.xs="column"routerLink="/login"><div class="social-icon-container"><span>Login</span></div></a>
+    <a  fxLayout.xs="column"routerLink="/app-addproduct"><div class="social-icon-container"><span>Register</span></div></a>
+    <a  fxLayout.xs="column" routerLink="/app-list-all-users"><div class="social-icon-container"><span>Cart</span></div></a>
+    <!--<a routerLink="/men"><div class="social-icon-container"><span>Men</span></div></a>-->
+    <a  fxLayout.xs="column" routerLink="/women"><div class="social-icon-container"><span>Women</span></div></a>
+    <a  fxLayout.xs="column" routerLink="/kids"><div class="social-icon-container"><span>Kids</span></div></a>
+    <a  fxLayout.xs="column" routerLink="/about-us"><div class="social-icon-container"><span>About</span></div></a>
+  </div>
+
+  <!-- <div class="social-container">
+    <a href="#"><div class="social-icon-container">Hom'e</div></a>
+    <a href="#"><div class="social-icon-container">Store</div></a>
+    <a href="#"><div class="social-icon-container">D'DD</div></a>
+  </div> -->
+  <div class="social-icons" fxFlex="100%" fxLayoutAlign="center">
+    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+    <i  class="fa fa-twitter-square" aria-hidden="true"></i>
+    <i class="fa fa-instagram" aria-hidden="true"></i>
+  </div>
+</div>
+
+
+<!--<app-home></app-home>-->
+<!--<app-kids></app-kids>-->
+<!--<app-login></app-login>-->
+<!--<app-add-user></app-add-user>-->
+<!--<app-list-all-users></app-list-all-users>-->
+<!--<app-addproduct></app-addproduct>-->
+<!--<app-centralize-header></app-centralize-header>-->
+<!--<app-get-all-products></app-get-all-products>-->
+<!--<app-view-product></app-view-product>-->
+<!--<app-home></app-home>-->
+<!--<app-account></app-account>-->
+<!--<app-upoladfile></app-upoladfile>-->
+<!--<app-customer></app-customer>-->
+<!--̣<app-header></app-header>-->
+<!--<app-uploadfiletospring></app-uploadfiletospring>-->
+<!--<hr>-->
+<!--<hr>-->
+<!--<app-listuploadedimages></app-listuploadedimages>-->
+
+

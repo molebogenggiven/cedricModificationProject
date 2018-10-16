@@ -1,0 +1,68 @@
+<div class="container">
+
+  <div class="header">
+    <h1>Item Description</h1>
+  </div>
+
+  <div class="row" style="height: 80%;">
+    <div class="col-sm-6">
+      <!--<img src="http://www.chirundu.com/wp-content/uploads/2009/08/Chakalaka-Recipe.jpg"-->
+            <!--style="margin-top: 20px; width: 100%">-->
+      <img src="{{jsonMessage.pictureData}}" style=" width: 100%; height: 20%">
+      <div class="rowHeight">
+      <div class="row" style="height: 20%; margin-right: 30px">
+        <div class="col-sm-2" style="background-color: yellow; padding-left: 10px">
+          <img src="http://www.chirundu.com/wp-content/uploads/2009/08/Chakalaka-Recipe.jpg"
+               style=" width: 100%; height: 20%">
+
+
+        </div>
+        &nbsp;&nbsp;
+        <div class="col-sm-2" style="background-color: black;">
+        </div>
+        &nbsp;&nbsp;
+        <div class="col-sm-2" style="background-color: orange">
+        </div>
+        &nbsp;&nbsp;
+        <div class="col-sm-2" style="background-color: red">
+        </div>
+      </div>
+      </div>
+
+  </div>
+    <div class="col-sm-6" >
+      <!--<div class="pull-right">-->
+        <h2>{{jsonMessage.productName}}</h2>
+        <hr>
+        <h3>R &nbsp;{{jsonMessage.productPrice}}</h3>
+        <hr>
+        <h4 class="list-group-item-heading">TYPE STYLE: {{jsonMessage.productId}}</h4>
+        <hr>
+        <!--<div class="row" >-->
+          <!--<div class="col-sm-2"><p>Size </p></div>-->
+          <!--<div class="col-sm-2">-->
+           <p> Size  &nbsp;&nbsp;
+            <select>
+              <option >{{jsonMessage.productSize}}</option>
+            </select>
+           </p>
+
+          <!--</div>-->
+        <!--</div>-->
+        <hr>
+        <p>Colour  Navy Blue</p>
+        <hr>
+        <p>Quantity &nbsp;&nbsp;
+        <input type="number" name="quantity" id="quantity" value="{{jsonMessage.productQuantity}}">
+        </p>
+        <hr>
+        <button type="submit" class="btn-success" (click)="addToCart()">Add to cart</button>
+        <hr>
+        <button type="submit" class="btn-danger" (click)="checkout()">Checkout</button>
+
+      <!--</div>-->
+
+
+    </div>
+  </div>
+</div>

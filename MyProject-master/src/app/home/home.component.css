@@ -1,0 +1,156 @@
+.container{
+  height: 95%;
+  background-color: rgba(199, 199,191, 1);
+  float: left;
+  width: 100%;
+  background-color: red;
+}
+body{
+  margin: 0;
+}
+.logo-container{
+  height: 20.5%;
+  width:28.5%;
+  background-color:rgba(255, 255,255, 1);
+  background-image: url(../../assets/logo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  float: left;
+  margin-top: -1%;
+  opacity: 1;
+}
+.left{
+  float: left;
+  background-color: rgba(255, 255,255, 1);
+  width: 50%;
+  height: 100%;
+  padding-top: 0.5%;
+  background-image: url(../../assets/visage.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.right{
+  float: right;
+
+  background-color: rgba(255, 255,255, 1);
+  width: 50%;
+  height: 100%;
+  padding-top: 0.5%;
+}
+.right-left{
+  float: left;
+  width: 25%;
+  height: 100%;
+  background-color: rgba(255, 255,255, 1);
+}
+.right-right{
+  float: left;
+  background-color: rgba(255, 255,255, 1);
+  width: 25%;
+  height: 100%;
+}
+.panelm, .panelt, .panelb{
+  margin-bottom: 1.5%;
+  box-shadow: 0.5px 0.5px 2px black;
+}
+.panelt{
+  float: left;
+  width: 98%;
+  height: 25%;
+  background-color: teal;
+  background-image: url(../../assets/women-leather.jpg);
+  background-size: contain;
+}
+.panelm{
+  float: left;
+  width: 100%;
+  height: 45%;
+  background-color: green;
+  background-image: url(../../assets/men-sweater.jpg);
+
+}
+.panelb{
+  float: left;
+  height: 27%;
+  width: 98%;
+  background-color: black;
+  background-image: url(../../assets/wideportara.jpg);
+  background-size: cover;
+}
+.caption{
+  width: 100%;
+  height: 100%;
+
+}
+.left-panel-top{
+
+  float: left;
+  width: 98%;
+  height: 24%;
+  background-color: rgba(199, 199,191, 1);
+  margin-bottom: 1.5%;
+}
+.left-panel-bottom, .left-panel-middle-middle, .left-panel-middle-top, .left-panel-top{
+  box-shadow: 0.5px 0.5px 2px black;
+}
+.left-panel-middle-top{
+
+  float: left;
+  width: 98%;
+  height: 24%;
+  background-color: darkgoldenrod;
+  margin-bottom: 1.5%;
+  background-image: url(/../../assets/kids.jpg);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.left-panel-middle-middle{
+
+  float: left;
+  width: 98%;
+  height: 24%;
+  background-color: black;
+  margin-bottom: 1.5%;
+  background-image: url(/../../assets/zara-automn-men-leather.jpg);
+  background-size: cover;
+}
+.left-panel-bottom{
+
+  float: left;
+  width: 98%;
+  height: 24%;
+  background-color: rgba(199, 199,191, 1);
+  margin-bottom: 1.5%;
+  background-image: url(/../../assets/red-dress.jpg);
+  background-size: cover;
+}
+.left-panel-top-right{
+  width: 49%;
+  background-color: brown;
+  height: 100%;
+  float: left;
+  background-image: url(/../../assets/zara-automn-men.jpg);
+  background-size: cover;
+
+}
+.left-panel-top-left{
+  width: 49%;
+  background-color: violet;
+  height: 100%;
+  float: left;
+  background-size: cover;
+  background-image: url(/../../assets/visage.jpg);
+  background-repeat: no-repeat;
+  margin-right: 2%;
+}
+.second{
+  background-image: url(/../../assets/adidas-men.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.first{
+  background-image: url(/../../assets/nike.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}

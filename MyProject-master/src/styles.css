@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+body{
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  /*background-color: whitesmoke;*/
+
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+table{
+margin:40px;
+width: 100%
+}
+table thead{
+
+  background-color: rgba(148, 151, 142, 0.979);
+  border:1px solid white;
+}
+tbody,thead{
+  width: 100%;
+
+}
+tr{
+}
+td{
+  padding:20px;
+  width: 10%;
+  line-height: 2px;
+  white-space: nowrap;
+}
+thead tr td{
+  border: 1px solid white;
+
+}
+tbody{
+  margin-bottom: 20px;
+}
+
+.actions{
+  display:inline;
+}
+ button{
+  min-width: 60px;
+  margin: 8px;
+  border-radius: 5px;
+  padding:8px;
+  border: 1px solid black;
+}
+input[type="text"]{
+  width: 50%;
+  border-radius: 3px;
+  border:1px solid black;
+  height: 40px;
+  padding: 10px;
+
+}
+
+input[type="submit"]{
+  min-width: 60px;
+  margin: 8px;
+  border-radius: 5px;
+  padding:20px;
+  border: 1px solid black;
+
+ 
+}

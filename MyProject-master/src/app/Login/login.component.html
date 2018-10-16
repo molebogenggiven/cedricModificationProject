@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="row">
+    <!--<div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">-->
+    <div class="col-xs-12 col-sm-10 cols-md-8 cols-sm-offset-1 cols-md-offset-2">
+
+    <form  (ngSubmit)="getDetails()" #f="ngForm" >
+  <!--<h3 class="ui header" class="text-center">Login</h3>-->
+
+  <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+       <!--ngModelGroup="userData"-->
+       <!--#userData="ngModelGroup">-->
+    <div class="row">
+      <div class="col-sm-10">
+        <p class="colour">{{messageError}}</p>
+      </div>
+    </div>
+    <div class="row">
+  <div class=" col-sm-10  form-group">
+    <label for="email" >Username</label>
+    <input type="email"
+           id="email"
+           class="form-control"
+           ngModel
+           name="email"
+           required
+            #email="ngModel">
+    <span class="help-block" *ngIf="!email.valid && email.touched">Please enter valid email</span>
+  </div>
+    </div>
+
+  <div class="row" >
+  <div class=" col-sm-10 form-group">
+        <label for="password">Password</label>
+        <input type="password"
+               id="password"
+               class="form-control"
+               ngModel
+               name="password"
+               required
+               #password="ngModel">
+    <span class="help-block" >You can't leave password field empty</span>
+  </div>
+  </div>
+
+    <!--<div class="row">-->
+      <!--<div class="col-xs-12">-->
+        <!--<button type="button" class="btn btn-primary dropdown-toggle">-->
+          <!--Manage Recipe <span class="caret"></span>-->
+        <!--</button>-->
+        <!--<ul class="dropdown-menu">-->
+          <!--<li><a href="#">Add Recipe to Shopping</a></li>-->
+          <!--<li><a href="#">Edit Recipe to Shopping</a></li>-->
+          <!--<li><a href="#">Delete Recipe to Shopping</a></li>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="row">-->
+      <!--<div class="col-sm-10">-->
+        <!--<input type="file" (change)="selectFile($event)" accept=".png, .jpg, .jpeg">-->
+      <!--</div>-->
+    <!--</div>-->
+    <hr>
+  </div>
+      <div class="row">
+        <div class="col-sm-10">
+  <button type="submit"
+          class="btn btn-primary"
+          [disabled]="!f.valid" >Sign in</button>
+          <a [routerLink]="['/pp-get-all-products']" class="btn btn-link">Sign-Up?</a>
+      </div>
+      </div>
+      <hr>
+      <button mat-raised-button (click)="onCreate()">
+        <mat-icon>add</mat-icon>
+      </button>
+
+
+</form>
+      <hr>
+      <!--<div class="row">-->
+        <!--<div class="col-sm-10">-->
+          <!--<button type="submit"-->
+                  <!--class="btn btn-primary" (click)="submitPicture()">Submit Picture</button>-->
+        <!--</div>-->
+      <!--</div>-->
+
+</div>
+
+</div>
+
+
+</div>
+<ngx-toasta [position]="'top-center'"></ngx-toasta>
+
+
+<!--<span class="pull-right">-->
+      <!--<img src="{{base64textString}}" class="img-responsive" alt="{{imagePath}}"  style="max-height: 50px">-->
+    <!--</span>-->

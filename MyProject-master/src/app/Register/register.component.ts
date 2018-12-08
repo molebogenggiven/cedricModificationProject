@@ -65,6 +65,7 @@ export class RegisterComponent implements OnInit {
         } else if (resJson._body === 'failed') {
           this.messageError = 'please enter valid credentials';
       }});
+    this.signUpForm.reset();
   }
   onTitleSelected(value: any) {
     // console.log('value is :' + value);

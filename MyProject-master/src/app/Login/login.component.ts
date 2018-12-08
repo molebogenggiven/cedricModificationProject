@@ -1,6 +1,6 @@
-import {Component, ElementRef, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {ServiceComponent} from './server.service';
-import {FormGroup, NgForm} from '@angular/forms';
+import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {Response} from '@angular/http';
 import {ActivatedRoute, Router} from '@angular/router';
 import {isBoolean} from 'util';
@@ -18,13 +18,9 @@ import {ToasterService} from './ToastService';
 })
 
 
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  // stylesUrl: [ './login.component.css' ]
-})
-export class LoginComponent {
-   @ViewChild('f') signUpForm: NgForm;
+
+export class LoginComponent implements OnInit {
+   signUpForm: FormGroup;
   getResponse: string;
   firstPassword: string;
   messageError: string;
@@ -45,15 +41,24 @@ export class LoginComponent {
               private toasterService: ToasterService) { // this.toastaConfig.position = 'top-right';
               this.toastaConfig.theme = 'default';
   }
+  ngOnInit() {
+    this.signUpForm = new FormGroup({
+      'userData': new FormGroup({
+          'email': new FormControl(null, [Validators.required, Validators.email] ),
+          'password': new FormControl(null, Validators.required)
+        }
+        )
+          });
+  }
   getDetails() {
     // this.toasterService.Success('success button clicked');
   //  console.log();
  //   console.log(btoa('http://www.chirundu.com/wp-content/uploads/2009/08/Chakalaka-Recipe.jpg'));
     console.log(this.signUpForm);
-    this.addToast();
+   // this.addToast();
     this.values.username = this.signUpForm.value.userData.email;
     this.values.password = this.signUpForm.value.userData.password;
-    this.toastaService.success('Push Submit Button');
+   // this.toastaService.success('Push Submit Button');
     // this.values[0].password = 'GuruAlo';
      this.serviceComponent.storeUsers(this.values).
       subscribe(
@@ -68,7 +73,9 @@ export class LoginComponent {
              // this.route.navigate(['/login']);
            }
          }
-     ); // const value = this.getResponse.indexOf('S');
+     );
+     this.signUpForm.reset();
+     // const value = this.getResponse.indexOf('S');
       // console.log(value);
     // this.firstPassword = this.getResponse;
     // console.log(typeof this.firstPassword);

@@ -27,7 +27,7 @@ export class AppComponent  {
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
-    let num = this.doc.body.scrollTop;
+    const num = this.doc.body.scrollTop;
     if (num > 50) {
       this.fixed = true;
     } else if (this.fixed && num < 5) {
@@ -37,12 +37,16 @@ export class AppComponent  {
 
   ngOnInit() {
     this.name = "Cedric";
-    //change data with real ones
-    this.manu.push( { value: "Home",routerLink:"home" }, { value: "Login",routerLink:"login" }, 
-    { value: "Register" ,routerLink:"app-addproduct"},{value:"Men",routerLink:"men"},{value:"Women",routerLink:"women"},
-    {value:"Kids",routerLink:"kids"},{value:"About",routerLink:"about-us"})
-    this.formBuilder = new FormBuilder();
-    this.searchForm = this.formBuilder.group({
+     // change data with real ones
+    this.manu.push( { value: 'Home', routerLink: 'home' },
+      { value: 'Login', routerLink: 'login'},
+      { value: "Register" ,routerLink: 'register'},
+      { value:"Men",routerLink:"men"},
+      {value:"Women",routerLink: "women"},
+      {value:"Kids",routerLink:"kids"},
+      {value:"About",routerLink:"about-us"})
+      this.formBuilder = new FormBuilder();
+      this.searchForm = this.formBuilder.group({
       search: new FormControl('', {}),
     })
 

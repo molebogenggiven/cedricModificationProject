@@ -6,3 +6,16 @@
 h1{
   text-align: center;
 }
+.panel-heading{
+  margin-top: -15%;
+}
+.form-group{
+  font-style:oblique;
+  
+}
+
+div > span{
+  font-size: 5px solid black;
+}
+
+

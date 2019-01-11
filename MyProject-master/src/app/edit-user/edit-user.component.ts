@@ -8,9 +8,11 @@ import {FormGroup} from '@angular/forms';
 })
 export class EditUserComponent implements OnInit {
   signUpForm: FormGroup;
+   email = 'molebogen';
   constructor() { }
 
   ngOnInit() {
+    console.log('Email is'+ this.email)
   }
   onSubmit () {}
 

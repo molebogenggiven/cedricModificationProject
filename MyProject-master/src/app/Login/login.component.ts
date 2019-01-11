@@ -63,15 +63,19 @@ export class LoginComponent implements OnInit {
      this.serviceComponent.storeUsers(this.values).
       subscribe(
          (response) => {
-           const resSTR = JSON.stringify(response);
-           const resJson = JSON.parse(resSTR);
-           console.log(resJson._body);
-           if (resJson._body === 'success') {
-             this.route.navigate(['/app-my-navbar']);
-           } else if (resJson._body === 'failed') {
-             this.messageError = 'please enter valid credentials';
-             // this.route.navigate(['/login']);
-           }
+           //const resSTR = JSON.stringify(response);
+           //const resJson = JSON.parse(resSTR);
+           //console.log(resJson._body);
+           const userDetails = response.json();
+           if (userDetails.status === 'UserSuccessfull') {
+            // this.route.navigate(['/app-my-navbar']);
+            this.route.navigate(['/app-send-code']);
+          
+           } 
+          //else if (resJson._body === 'failed') {
+          //    this.messageError = 'please enter valid credentials';
+          //    // this.route.navigate(['/login']);
+          //  }
          }
      );
      this.signUpForm.reset();

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
 import { AppComponent } from './app.component';
  import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HeaderComponent} from './Header/header.component';
@@ -31,7 +30,8 @@ import { WomenComponent } from './women/women.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { ListAllUsersComponent } from './list-all-users/list-all-users.component';
 import { AddUserComponent } from './add-user/add-user.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
+//import { EditUserComponent } from './edit-user/edit-user.component';
+import {EditUserComponent} from './edit-user/edit-user.component'
 import { ViewProductComponent } from './view-product/view-product.component';
 import { HttpClientModule} from '@angular/common/http';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
@@ -45,12 +45,15 @@ import { DetailsUploadComponent } from './details-upload/details-upload.componen
 import { CentralizeHeaderComponent } from './centralize-header/centralize-header.component';
 import { CartComponent } from './cart/cart.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import {SendCodeComponent} from './send-code/send-code.component'
 import { SubmitCodeComponent } from './submit-code/submit-code.component';
 import { MaterialmoduleComponent } from './materialmodule/materialmodule.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyNavbarComponent } from './my-navbar/my-navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NotificationModule } from '@progress/kendo-angular-notification';
+import { DialogModule } from '@progress/kendo-angular-dialog';
 import {
   MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule,
   MatDialogModule
@@ -59,6 +62,8 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { ViewcustomerComponent } from './viewcustomer/viewcustomer.component';
 import {ToastaModule} from 'ngx-toasta';
 import {ToasterService} from './Login/ToastService';
+import { Notification, from } from 'rxjs';
+
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
@@ -77,7 +82,9 @@ const appRoutes: Routes = [
   {path: 'editUserComponent' , component: EditUserComponent},
   {path: 'app-addproduct', component: AddproductComponent},
   {path: 'pp-get-all-products', component: GetProductsComponent},
-  {path: 'app-list-all-users', component: ListAllUsersComponent}
+  {path: 'app-list-all-users', component: ListAllUsersComponent},
+  {path: 'app-send-code', component: SendCodeComponent}
+  
 ];
 @NgModule({
   declarations: [
@@ -120,10 +127,13 @@ const appRoutes: Routes = [
     MyNavbarComponent,
     UpdateUserComponent,
     ViewcustomerComponent,
+    SendCodeComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
+    NotificationModule,
+    DialogModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,

@@ -53,16 +53,19 @@ export class UpdateUserComponent implements OnInit {
     this.userDetails.passwordVerify = this.signUpForm.value.confirmPassword;
     this.saveCustomerSrvice.registerCustomerToDataBase(this.userDetails).subscribe(
       (response) => {
-        const resSTR = JSON.stringify(response);
-        const resJson = JSON.parse(resSTR);
+       // const resSTR = JSON.stringify(response);
+       // const resJson = JSON.parse(resSTR);
+       const userDetails = response.json();
         console.log(response);
-        console.log(resJson._body);
-        if (resJson._body !== null) {
-          this.saveCustomerSrvice.setEmail(resJson._body.toString());
+        //console.log(resJson._body);
+        if (userDetails.status === 'progress') {
+        //  this.saveCustomerSrvice.setEmail(resJson._body.toString());
           this.route.navigate(['/submitCode']);
-        } else if (resJson._body === 'failed') {
-          this.messageError = 'please enter valid credentials';
-        }});
+        } 
+       // else if (resJson._body === 'failed') {
+        //   this.messageError = 'please enter valid credentials';
+        // }
+      });
   }
   onTitleSelected(value: any) {
     // console.log('value is :' + value);

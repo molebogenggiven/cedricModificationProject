@@ -13,6 +13,16 @@
       class="help-block">Please enter the valid email</span>
   </div>
   </div>
+
+  <!-- <div class="col-sm-6">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email" class="form-control" >
+      <span
+        *ngIf="!signUpForm.get('email').valid && signUpForm.get('email').touched"
+        class="help-block">Please enter the valid email</span>
+    </div>
+    </div> -->
     <div class="col-sm-6">
   <div class="form-group">
     <label for="firstName">First Name</label>
@@ -25,7 +35,7 @@
   </div>
 
    <div class="row">
-     <div class="col-sm-6">
+     <!-- <div class="col-sm-6">
   <div class="form-group">
     <label for="lastName">Last Name</label>
     <input type="text" id="lastName" formControlName="lastName" class="form-control" >
@@ -33,7 +43,17 @@
       <span *ngIf="!signUpForm.get('lastName').valid && signUpForm.get('lastName').touched"
       class="help-block">Please enter your lastName</span>
   </div>
-     </div>
+     </div> -->
+
+     <div class="col-sm-6">
+      <div class="form-group">
+        <label for="lastName"> Last Name</label>
+        <input type="text" id="lastName" formControlName="lastName" class="form-control" >
+        <span
+          *ngIf="!signUpForm.get('lastName').valid && signUpForm.get('lastName').touched"
+          class="help-block">Please enter the valid email</span>
+      </div>
+      </div>
      <div class="col-sm-6">
   <div class="form-group">
     <label for="phoneNumber">Phone Number</label>
@@ -64,17 +84,23 @@
      <div class="col-sm-6">
          <label>Title</label>
        <br>
-         <select (ngModelChange)="onTitleSelected($event)" >
-           <option *ngFor="let title of titles" [value]="title" >{{title}}</option>
-         </select>
-
+       <select (change)="onTitleSelected($event)" >
+        <option  value=MR>Mr</option>
+        <option  value=Mrs>Mrs</option>
+        <option  value=Dr>Dr</option>
+        <option  value=Prof>Prof</option>
+        <option value=Adv>Adv</option>
+      </select>
+        
      </div>
 
      <div class="col-sm-6">
        <label>Gender</label>
        <br>
-       <select (ngModelChange) = "onGenderSelected($event)">
-         <option *ngFor="let gen of gender" [value]="gen" >{{gen}}</option>
+       <select (change) = "onGenderSelected($event)">
+         <option  value=Male >Male</option>
+         <option  value=Female >Female</option>
+         <option  value=Other >Other</option>
        </select>
 
      </div>
@@ -84,6 +110,9 @@
     <button class="btn btn-primary">Sign-up</button>
 
     </form>
+    
+    
+
     </div>
 
   </div>

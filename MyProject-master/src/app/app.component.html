@@ -146,7 +146,10 @@
     <a  fxLayout.xs="column" routerLink="/kids"><div class="social-icon-container"><span>Kids</span></div></a>
     <a  fxLayout.xs="column" routerLink="/about-us"><div class="social-icon-container"><span>About</span></div></a>
   </div>
-  <!-- <app-my-navbar></app-my-navbar> -->
+
+  <div *ngIf="status">
+  <app-my-navbar></app-my-navbar>
+</div>
 
   <!-- <div class="social-container">
     <a href="#"><div class="social-icon-container">Hom'e</div></a>

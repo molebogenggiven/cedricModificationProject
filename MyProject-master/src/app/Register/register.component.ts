@@ -11,6 +11,15 @@ import {Router} from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  
+  onTitleSelected(event: any) {
+    // console.log('value is :' + value);
+    this.userDetails.title = event.target.value;
+    //
+    //this.setTitle(value);
+  }
+
   signUpForm: FormGroup;
   title: any;
   messageError: string;
@@ -24,8 +33,8 @@ export class RegisterComponent implements OnInit {
     phoneNumber: '',
     password: '',
     passwordVerify: '',
-    title: 'mrs',
-    gender: 'male'
+    title: '',
+    gender: ''
   };
 
   constructor(private saveCustomerSrvice: GetServiceFromSpring, private route: Router) {
@@ -46,38 +55,42 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     console.log(this.signUpForm);
-    console.log('Value is' + this.getTitle());
+    //console.log('Value is' + this.getTitle());
     this.userDetails.username = this.signUpForm.value.email;
     this.userDetails.firstName = this.signUpForm.value.firstName;
     this.userDetails.lastName = this.signUpForm.value.lastName;
     this.userDetails.phoneNumber = this.signUpForm.value.phoneNumber;
     this.userDetails.password = this.signUpForm.value.password;
     this.userDetails.passwordVerify = this.signUpForm.value.confirmPassword;
+    console.log(this.userDetails);
     this.saveCustomerSrvice.registerCustomerToDataBase(this.userDetails).subscribe(
       (response) => {
         const resSTR = JSON.stringify(response);
         const resJson = JSON.parse(resSTR);
+        const details = response.json()
+        console.log('The value is'+ details.status);
         console.log(response);
         console.log(resJson._body);
-        if (resJson._body !== null) {
+        if (details.status === 'Success') {
+          // resJson._body !== null
           this.saveCustomerSrvice.setEmail(resJson._body.toString());
-          this.route.navigate(['/submitCode']);
-        } else if (resJson._body === 'failed') {
+         // this.route.navigate(['/submitCode']);
+          this.route.navigate(['app-send-code']);
+        } else if (details.status === 'active') {
+          this.route.navigate(['app-send-code']);
           this.messageError = 'please enter valid credentials';
+      }else{
+        
       }});
     this.signUpForm.reset();
   }
-  onTitleSelected(value: any) {
-    // console.log('value is :' + value);
-    this.setTitle(value);
+  
+  onGenderSelected(gender: any) {
+
+    this.userDetails.gender = gender.target.value;
   }
-  onGenderSelected(value: any) {}
-  setTitle(title: any) {
-    this.titles = title;
-    }
-    getTitle(): any {
-    return this.titles;
-    }
+  
+ 
 }
 
 //   forBiddenNames(control: FormControl): {[s: string]: boolean} {

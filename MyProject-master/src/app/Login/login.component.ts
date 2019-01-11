@@ -68,8 +68,17 @@ export class LoginComponent implements OnInit {
            //console.log(resJson._body);
            const userDetails = response.json();
            if (userDetails.status === 'UserSuccessfull') {
-            // this.route.navigate(['/app-my-navbar']);
-            this.route.navigate(['/app-send-code']);
+            this.service.setCheckSideBarStatus(true);
+
+            let x = setInterval(() =>{
+
+              this.route.navigate(["/appComponent"]);
+
+                  clearInterval(x);
+            },500);
+
+            this.route.navigate(['/app-my-navbar']);
+            // this.route.navigate(['/app-send-code']);
           
            } 
           //else if (resJson._body === 'failed') {

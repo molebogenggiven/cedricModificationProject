@@ -64,6 +64,7 @@ import {ToastaModule} from 'ngx-toasta';
 import {ToasterService} from './Login/ToastService';
 import { Notification, from } from 'rxjs';
 
+
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
@@ -83,7 +84,8 @@ const appRoutes: Routes = [
   {path: 'app-addproduct', component: AddproductComponent},
   {path: 'pp-get-all-products', component: GetProductsComponent},
   {path: 'app-list-all-users', component: ListAllUsersComponent},
-  {path: 'app-send-code', component: SendCodeComponent}
+  {path: 'app-send-code', component: SendCodeComponent},
+  {path: 'appComponent', component: AppComponent}
   
 ];
 @NgModule({

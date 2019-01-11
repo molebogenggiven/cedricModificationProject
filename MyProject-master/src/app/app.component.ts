@@ -1,6 +1,7 @@
 import { Component, Inject, HostListener } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { DOCUMENT } from '@angular/platform-browser';
+import { GetServiceFromSpring } from './Services/getServiceFromSpring';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ export class AppComponent  {
   cartData: any = { itemNum: "5", value: "My Cart" };
   public fixed: boolean = false;
   searchForm: any;
-  constructor(@Inject(DOCUMENT) private doc: Document, private formBuilder: FormBuilder, ) {
+  status: boolean;
+  constructor(@Inject(DOCUMENT) private doc: Document, private formBuilder: FormBuilder, private service: GetServiceFromSpring ) {
     setTimeout(() => { this.allowNewServer = true; }, 2000);
   }
   onCreateServerSession() {
@@ -38,7 +40,9 @@ export class AppComponent  {
   ngOnInit() {
     this.name = "Cedric";
      // change data with real ones
-    this.manu.push( { value: 'Home', routerLink: 'home' },
+     this.status = this.service.getCheckSideBarStaus();
+     console.log(this.status);
+     this.manu.push( { value: 'Home', routerLink: 'home' },
       { value: 'Login', routerLink: 'login'},
       { value: "Register" ,routerLink: 'register'},
       { value:"Men",routerLink:"men"},

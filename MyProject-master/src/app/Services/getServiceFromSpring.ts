@@ -10,6 +10,7 @@ export class GetServiceFromSpring {
   private jsonMessage: any;
   private picture: string;
   private email: string;
+  private status: boolean;
   constructor(private http: Http, private httpClient: HttpClient)  {
     }
     registerCustomerToDataBase(customerDetails: any) {
@@ -84,4 +85,14 @@ export class GetServiceFromSpring {
    submitVerificationDetails(jsonData: any) {
     return this.httpClient.post('http://localhost:080/customer/submitVerificationCode', jsonData);
    }
+
+   setCheckSideBarStatus(status: boolean){
+      this.status = status;
+   }
+   
+   getCheckSideBarStaus(): boolean{
+
+    return this.status;
+   }
+
 }

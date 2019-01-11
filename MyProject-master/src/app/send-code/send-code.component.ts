@@ -12,4 +12,8 @@ export class SendCodeComponent implements OnInit {
   ngOnInit() {
   }
 
+  submitCode(code: number){
+    console.log('Value is:'+ code)
+  }
+
 }
